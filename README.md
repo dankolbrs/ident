@@ -11,6 +11,18 @@ token = foo.get_api_token()
 #do stuff with it
 ```
 
+##Unit Testing
+Added unit testing. Can be run from the main directory with:
+```
+python -m unittest -s ./ discover -v
+```
+**or**
+```
+python -m tests.identTest --verbose
+```
+###Unit Testing test file
+Creds must be included in the tests/testcreds.json file. The tests/testcreds.json.sample can be copied and correct values placed
+
 ##TODO
 * Validate token every 13 minutes
 * Pretty much serves its purpose..

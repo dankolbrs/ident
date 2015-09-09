@@ -1,0 +1,6 @@
+{
+	"user_name": "<RACKSPACE_USERNAME>",
+	"ddi": "<RACKSPACE_DDI>",
+	"api_key": "<RACKSPACE_API_KEY>",
+	"password": "<RACKSPACE_PASSWORD>"
+}

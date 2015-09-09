@@ -2,27 +2,24 @@ import time, requests, json, warnings, sys
 
 class IdentCall(object):
 	DEF_URL = "https://identity.api.rackspacecloud.com"
-	def __init__(self,
-				username="",
-				apikey = "",
-				password = "",
-				endpoint=DEF_URL):
+	def __init__(self, username="",	apikey = "", password = "",	endpoint = DEF_URL):
 
 		self.endpoint = endpoint
 		self.password = password
 		self.apikey = apikey
 		self.username = username
 		self.KEY_AUTH = False
-
 		warnings.filterwarnings('ignore', module='requests')
 
 		if len(self.username) and len(self.apikey):
 			#username and apikey was passed in init
 			self.KEY_AUTH = False
+			self.set_auth(username=self.username, apikey=self.apikey)
 			#self.authNameAndKey(username, apikey)
 		elif len(self.username) and len(self.password):
 			#username and password passed in init
 			self.KEY_AUTH = True
+			self.set_auth(username=self.username, password=self.password)
 			#self.authNameAndPass(username, password)
 		else:
 			#we got nothing
@@ -93,7 +90,7 @@ class IdentCall(object):
 			exit(3)
 
 		self.api_token = self.ident_json.json()['access']['token']['id']
-		
+
 	def call_auth(self):
 		#if running auth call manually, not when passing username
 		self.auth()
